@@ -9,4 +9,4 @@ A Netty Java based HTTPS web server
 
 # What to note?
 
-Please not that this version may be broken because of the config, so if you do decide to use it please remove the config files
+Please not that this version is only a beta, so if you do decide to use it please report any bugs
