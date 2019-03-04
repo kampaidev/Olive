@@ -91,8 +91,8 @@ public class Olive {
 			}
 		}
 		
-		boolean disable_default = this.config.getBoolean("disable_default_plugins");
-		if(!disable_default)
+		//boolean disable_default = this.config.getBoolean("disable_default_plugins");
+		//if(!disable_default)
 			this.plugins.add(new OliveIndex(this, new File("webfiles/index.html")));
 
 		System.out.println("[" + this.plugins.size() + "] Plugins have been loaded");
@@ -102,11 +102,11 @@ public class Olive {
 		Thread oliveThread = new Thread(() -> {
 			try {
 				
-				String name = this.config.getString("name");
-				int port = this.config.getInt("port");
-				boolean https = this.config.getBoolean("https-enabled");
+				//String name = this.config.getString("name");
+				//int port = this.config.getInt("port");
+				//boolean https = this.config.getBoolean("https-enabled");
 				
-				oliveServer = new OliveServer(name, port, https)
+				oliveServer = new OliveServer("OliveServer", 80, true)
 						.plugin(this.plugins)
 						
 						.start(this.config);
@@ -126,6 +126,10 @@ public class Olive {
 	public File setIndex(File file) {
 		this.index = file;
 		return index;
+	}
+	
+	public List<OlivePlugin> getPlugins() {
+		return plugins;
 	}
 	
 	public WebServer getServer() {

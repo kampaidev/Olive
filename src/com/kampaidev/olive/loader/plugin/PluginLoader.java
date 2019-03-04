@@ -34,7 +34,7 @@ public class PluginLoader {
         ServiceLoader<OlivePlugin> sl = ServiceLoader.load(OlivePlugin.class, ucl);
         Iterator<OlivePlugin> apit = sl.iterator();
         while (apit.hasNext())
-            System.out.println(apit.next().toString());
+            System.out.println(olive.getPlugins().add(apit.next()));
 	}
 	
 }
